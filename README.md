@@ -3,7 +3,8 @@
 ## Skripte ausführen:  
 ### Online: 
 **[Online-Bash-Compiler](https://repl.it/languages/bash)**  
-Skript in das mittlere Fenster reinkopieren und auf "`run`" klicken
+Skript in das mittlere Fenster reinkopieren und auf "`run`" klicken  
+**Optionen:** Im rechten Fenster z.B. `source main.sh 31 36`  
 ### Offline:  
 **Bash-Shell bekommen:**  
   * **a) Windows: [WSL](https://docs.microsoft.com/de-de/windows/wsl/install-win10) installieren** 
