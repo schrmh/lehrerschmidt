@@ -1,13 +1,29 @@
+#!/bin/bash
 echo "Lehrer-Multiplikation ab 20"
 echo "---------------------------"
-echo "Alpha-Version+ (testet automatisch):" 
+echo "Alpha-Version++ (mit Optionen):" 
 echo "- Nur gleiche Zahlen"
 echo "- Nur Zahlen mit den gleichen Zehnerstellen"
 echo "- Nur Zahlen bis inklusive 99"
 echo "---------------------------"
+echo "Testen von  Zahlen innerhalb eines Bereiches:"
+echo "./lehrermultiplikation.sh  31 36"
+echo "Manuelle Eingabe:"
+echo "./lehrermultiplikation.sh manuell"
+echo "---------------------------"
 echo "Geschrieben am 09.05.2019 von derberg (matrix.org-Nickname)"
 
-for i in {20..99}
+if [ "$1" = "manuell" ]
+then
+ read -p "Zahl eingeben: " start
+ ende=$start
+else
+ if [ "$1" = "" ]; then start=20; else start=$1; fi
+ if [ "$2" = "" ]; then ende=99; else ende=$2; fi
+fi
+
+
+for (( i=$start; i<=$ende; i++ ))
 do
 
 ((c++))
