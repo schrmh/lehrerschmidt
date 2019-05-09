@@ -3,8 +3,8 @@
 #### Skripte ausführen:  
 ##### Online: [Online-Bash-Compiler](https://repl.it/languages/bash) (Skript in das mittlere Fenster reinkopieren und auf "run" klicken)  
 ##### Offline:  
-** Skripte ausführbar machen:** sudo chmod +x `skriptname.sh` 
-** Skripte ausführen:** ./skriptname.sh
+**Skripte ausführbar machen:** sudo chmod +x `skriptname.sh`   
+**Skripte ausführen:** ./skriptname.sh  
 
 
 
