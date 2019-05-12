@@ -59,7 +59,7 @@ echo $c".3" $zahl_kombiniert"*"$zahl_zehner"="$zahl_malzehner
 zahl_zehner_minus1=$(expr $zahl_zehner - 1)
 zahl_abweichung=$(expr $zahl_rechts \* $zahl_zehner_minus1)
 zahl_endergebnis=$(expr $zahl_malzehner - $zahl_abweichung)
-echo $c".4" $zahl_endergebnis "(Erwartet:" $(expr $zahl \* $zahl)")"
+echo $c".4" $zahl_malzehner"-"$zahl_zehner_minus1"*"$zahl_rechts"="$zahl_endergebnis "(Erwartet:" $(expr $zahl \* $zahl)")"
 
 #5. Schritt
 if [[ $zahl_endergebnis = $(expr $zahl \* $zahl) ]]; then #Stimmt das Endergebnis?
