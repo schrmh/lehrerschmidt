@@ -1,27 +1,39 @@
 #!/bin/bash
 echo "Lehrer-Multiplikation ab 20"
 echo "---------------------------"
-echo "Alpha-Version++ (mit Optionen):" 
-echo "- Nur gleiche Zahlen"
-echo "- Nur Zahlen mit den gleichen Zehnerstellen"
-echo "- Nur Zahlen bis inklusive 99"
+echo "Alpha-Version++ (mit Optionen): "
+echo " - Nur gleiche Zahlen"
+echo " - Nur Zahlen mit den gleichen Zehnerstellen"
+echo " - Nur Zahlen bis inklusive 99"
 echo "---------------------------"
-echo "Testen von  Zahlen innerhalb eines Bereiches:"
+echo " Testen von  Zahlen innerhalb eines Bereiches:"
 echo "./lehrermultiplikation.sh  31 36"
 echo "Manuelle Eingabe:"
 echo "./lehrermultiplikation.sh manuell"
 echo "---------------------------"
 echo "Geschrieben am 09.05.2019 von derberg (matrix.org-Nickname)"
 
-if [ "$1" = "manuell" ]
+if [ "$1" = "regeln" ]
 then
- read -p "Zahl eingeben: " start
- ende=$start
-else
- if [ "$1" = "" ]; then start=20; else start=$1; fi
- if [ "$2" = "" ]; then ende=99; else ende=$2; fi
-fi
+echo "1. Schritt: "
+echo	 "Links: Zahl addieren mit Einer der anderen Zahl"
+echo	 "Rechts: Einer beider Zahlen multiplizieren"
+echo "2. Schritt: Die Zahlen \"zusammenschieben\":"
+echo	 "2. Zahl mit nur einer Stelle einfach anhängen"
+echo	 "2. Zahl mit zwei Stellen: Zehner mit Einer von 1. Zahl addieren"
+echo "3. Schritt: Ergebnis mit den Zehnern multiplizieren"
+echo "4. Schritt: Das rechte Ergebnis aus Einern aus Schritt"
+echo "            abziehen mal der Zehnerstelle der Ursprungszahl-1"
 
+else
+ if [ "$1" = "manuell" ]
+ then
+  read -p "Zahl eingeben: " start
+  ende=$start
+ else
+  if [ "$1" = "" ]; then start=20; else start=$1; fi
+  if [ "$2" = "" ]; then ende=99; else ende=$2; fi
+ fi
 
 for (( i=$start; i<=$ende; i++ ))
 do
@@ -69,5 +81,6 @@ else
  echo $zahl >> error.txt
 fi
  echo " "
- 
+
 done
+fi
