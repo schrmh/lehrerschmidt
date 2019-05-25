@@ -4,7 +4,7 @@
 ### Online: 
 **[Online-Bash-Compiler](https://repl.it/languages/bash)**  
 Skript in das mittlere Fenster reinkopieren und auf "`run`" klicken  
-**Optionen:** Im rechten Fenster z.B. `source main.sh 31 36`  
+**Optionen:** Im rechten Fenster z.B. `source main.sh gleich 31 36` oder `source main.sh beginnend 7`
 ### Offline:  
 **Bash-Shell bekommen:**  
   * **a) Windows: [WSL](https://docs.microsoft.com/de-de/windows/wsl/install-win10) installieren** 
