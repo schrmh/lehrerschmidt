@@ -3,18 +3,23 @@ main() {
     echo "Lehrer-Multiplikation ab 20"
     echo "---------------------------"
     echo "Beta-Version++ (mit Optionen): "
-    echo " - Nur gleiche Zahlen"
+    echo " - Nicht mehr nur gleiche Zahlen"
     echo " - Nur Zahlen mit den gleichen Zehnerstellen"
     echo " - Nur Zahlen bis inklusive 99"
     echo "---------------------------"
     echo "Links und rechts gleiche Zahl:"
     echo "./lehrermultiplikation.sh gleich"
-    echo " Testen von gleichen Zahlen innerhalb eines Bereiches:"
+    echo "Testen von gleichen Zahlen ab Zahl x:"
+    echo "./lehrermultiplikation.sh gleich 73"
+    echo "Testen von gleichen Zahlen innerhalb eines Bereiches:"
     echo "./lehrermultiplikation.sh gleich 31 36"
-    echo " Testen von Zahlen mit gleichen Zehnern:"
+    echo "Testen von Zahlen mit gleichen Zehnern:"
     echo "./lehrermultiplikation.sh beginnend"
     echo "Alle Zahlen, die mit x beginnen (z.B. 5 für 50 bis 59):"
-    echo "./lehrermultiplikation.sh beginnend 50"
+    echo "./lehrermultiplikation.sh beginnend 5"
+    echo "Zahlen, ab x (optional: bis y; sonst bis \"Zehnerende\")"
+    echo "./lehrermultiplikation.sh beginnend 27"
+    echo "./lehrermultiplikation.sh beginnend 55 62"
     echo "Manuelle Eingabe:"
     echo "./lehrermultiplikation.sh manuell"
     echo "---------------------------"
@@ -60,9 +65,15 @@ main() {
     if [ "$1" = "beginnend" ]
     then
         ende=99
-        if [ "$2" = "" ]; then start=20; 
-        else start=$2; ende=$(expr $start + 9); fi
-        if [ "$3" = "" ]; then ende=$ende; else ende=$3; fi
+        if [ "$2" = "" ]; then start=20;
+        elif [[ $(expr length $2) = "1" ]]; then #Nur eine Stelle?
+            start="$2"0
+            ende=$(expr $start + 9);
+        else start=$2; ende=$(expr $start + $(expr 9 - ${start:1:1})); 
+        fi
+        if [[ "$3" != "" && $(expr length $2) != "1" ]]; then 
+            ende=$3; 
+        fi
         
         for (( j=$start; j<=$ende; j++ ))
         do
@@ -76,7 +87,7 @@ main() {
         for (( i=$start; i<=$ende; i++ ))
         do
             #Eine Zahl
-            if [ "$1" != ""]
+            if [ "$1" != "" ]
             then
                 links=$i
                 rechts=$i
